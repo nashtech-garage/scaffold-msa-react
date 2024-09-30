@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${{ values.frontendName }}-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ${{ values.frontendName }}-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ${{ values.frontendName }}-deployment
+    spec:
+      containers:
+        - name: ${{ values.frontendName }}
+          image: image: ${{ values.dockerHubUserName }}/${{ values.frontendImage }}:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000

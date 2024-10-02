@@ -4,6 +4,7 @@ metadata:
   name: ingress-${{ values.frontendName }}
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   ingressClassName: nginx
   rules:

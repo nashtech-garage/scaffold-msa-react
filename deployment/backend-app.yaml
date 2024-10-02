@@ -19,7 +19,7 @@ spec:
    
   # Destination cluster and namespace to deploy the application
   destination:
-    server: ${{ values.k8sClusterURL }}
+    server: https://kubernetes.default.svc
     namespace: ${{ values.appName }}
 
   # Sync policy

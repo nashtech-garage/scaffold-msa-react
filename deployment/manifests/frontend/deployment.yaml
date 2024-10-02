@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ${{ values.frontendName }}
-          image: image: ${{ values.dockerHubUserName }}/${{ values.frontendImage }}:latest
+          image: ${{ values.dockerHubUserName }}/${{ values.frontendImageName }}:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000

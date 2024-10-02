@@ -1,16 +1,4 @@
 ---
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: mongo-sc-${{ values.appName }}
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
-provisioner: kubernetes.io/aws-ebs
-parameters:
-  type: gp2
-volumeBindingMode: WaitForFirstConsumer
-
----
 apiVersion: v1
 kind: Service
 metadata:
@@ -74,14 +62,10 @@ spec:
                name: mongo-config-${{ values.appName }}
          - secretRef:
              name: mongo-secrets-${{ values.appName }}
-        volumeMounts:
-            - name: data-volume-${{ values.appName }}
-              mountPath: /data/db
   volumeClaimTemplates:
     - metadata:
         name: data-volume-${{ values.appName }}
       spec:
-        storageClassName: mongo-sc-${{ values.appName }}
         accessModes:
           - "ReadWriteOnce"
         resources:

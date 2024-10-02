@@ -53,8 +53,8 @@ spec:
     spec:
       terminationGracePeriodSeconds: 10
       containers:
-      - name: mongo-${{ values.appName }}
-        image: mongo-${{ values.appName }}
+      - name: mongo
+        image: mongo
         ports:
           - containerPort: 27017
         envFrom:

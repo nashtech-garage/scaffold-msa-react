@@ -13,7 +13,7 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: https://github.com/nashtech-garage/scaffold-msa-react
+    repoURL: https://${{ values.host }}/${{ values.owner }}/${{ values.repo }}
     targetRevision: HEAD
     path: ./deployment/manifests/backend
    

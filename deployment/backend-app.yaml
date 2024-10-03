@@ -13,7 +13,7 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: https://${{ values.host }}/${{ values.owner }}/${{ values.repo }}
+    repoURL: ${{ values.repoURL }}
     targetRevision: HEAD
     path: ./deployment/manifests/backend
    

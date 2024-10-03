@@ -10,7 +10,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /${{ values.frontendName }}
+      - path: /
         pathType: Prefix
         backend:
           service:
